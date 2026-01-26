@@ -257,7 +257,7 @@ def example_sequence_generation():
         output, _ = rnn.forward(X_train[i], h_state)
         predictions.append(output[0, -1])
         h_state = np.zeros((10, 1))  # Reset for new sequence
-    
+            
     print("\nTraining complete!")
     return losses, predictions, Y_train
 
