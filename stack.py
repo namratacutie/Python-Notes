@@ -1,6 +1,6 @@
 # Stack follows LIFO
 
-stack_len = 5
+stack_len = 30
 stack = [None for i in range(stack_len)]
 top_pointer = -1 
 
@@ -35,7 +35,6 @@ push(1)
 push(2)
 push(3)
 push(4)
-push(5)
 
 print(pop())
 print(stack)
