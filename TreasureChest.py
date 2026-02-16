@@ -48,14 +48,24 @@ def readData():
     try:
         # Open the text file for reading
         with open("TreasureChestData.txt", "r") as file:
-            # Each line looks like: "3 * 2, 6, 10"
-            for line in file:
-                # Split the line by comma into a list: ["3 * 2", " 6", " 10"]
-                data = line.strip().split(",")
-                if len(data) >= 3:
-                    # Create a TreasureChest object using the 3 parts
-                    chest = TreasureChest(data[0].strip(), data[1].strip(), data[2].strip())
-                    # Add the OBJECT to the list (not the raw string)
+            # Read all lines from the file
+            lines = file.readlines()
+            
+            # The file structure is:
+            # Line 1: Question
+            # Line 2: Answer
+            # Line 3: Points
+            # This pattern repeats for every 3 lines.
+            for i in range(0, len(lines), 3):
+                # Ensure we have at least 3 lines remaining for a full object
+                if i + 2 < len(lines):
+                    question = lines[i].strip()
+                    answer = lines[i+1].strip()
+                    points = lines[i+2].strip()
+                    
+                    # Create a TreasureChest object using the 3 lines
+                    chest = TreasureChest(question, answer, points)
+                    # Add the OBJECT to the list
                     arrayTreasure.append(chest)
     except FileNotFoundError:
         print("Error: 'TreasureChestData.txt' not found.")
