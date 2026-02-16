@@ -27,16 +27,12 @@ class Pet:
     def GetOwnerName(self):
         return self.__OwnerName
 
-if __name__ == "__main__":
-    myPet1 = Pet("P001", "Cat", "+9779742246521", "2026-02-16", "Aayush", "Lawarna")
-    
-    # Verifying getters
-    print(f"Pet Name: {myPet.GetPetName()}")
-    print(f"Pet Owner : {myPet.GetOwnerName()}")
-    print(f"Owner Telephone: {myPet.GetOwnerTelephone()}")
-    
-    # Verifying setters
-    myPet.SetPetID("P002")
-    myPet.SetDateRegistered("2024-05-21")       
 
-    print(myPet)
+myPet = Pet("P001", "Cat", "+9779742246521", "2026-02-16", "Aayush", "Lawarna")
+    
+print(f"Pet Name: {myPet.GetPetName()}")
+print(f"Pet Owner : {myPet.GetOwnerName()}")
+print(f"Owner Telephone: {myPet.GetOwnerTelephone()}")
+    
+myPet.SetPetID("P002")
+myPet.SetDateRegistered("2024-05-21")
