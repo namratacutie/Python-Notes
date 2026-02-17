@@ -53,9 +53,9 @@ class Vehicle:
         self.__HorizontalPosition = HP
 
     def IncreaseSpeed(self):
-        self.__CurrentSpeed = self.CurrentSpeed + self.__IncreaseAmount
+        self.__CurrentSpeed += self.__IncreaseAmount
 
         if(self.__CurrentSpeed > self.__MaxSpeed):
             self.__CurrentSpeed = self.__MaxSpeed
         
-        self.__HorizontalPosition = self.__HorizontalPosition + self.__CurrentSpeed
+        self.__HorizontalPosition += self.__CurrentSpeed
