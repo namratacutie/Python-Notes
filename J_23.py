@@ -27,9 +27,10 @@ PrintArray(DataArray)
 LinearSearch(DataArray, target)
 
 class Vehicle:
-    def __init__(self, ID, MaxSpeed, CurrentSpeed, IncreaseAmount, HorizontalPosition):
-        self.__ID = ID #Integer
-        self.__MaxSpeed = MaxSpeed #Integer
+    def __init__(self, IDP, MaxSpeedP, IncreaseAmountP):
+        self.__ID = IDP #Integer
+        self.__MaxSpeed = MaxSpeedP #Integer
+        SELF.__IncreaseAmount = IncreaseAmountP
         self.__CurrentSpeed = 0 #Integer
         self.__HorizontalPosition = 0 #Integer
 
@@ -45,12 +46,16 @@ class Vehicle:
     def GetHorizontalPosition(self):
         return self.__HorizontalPosition
 
-    def SetCurrentSpeed(self, CurrentSpeed):
-        self.__CurrentSpeed = CurrentSpeed
+    def SetCurrentSpeed(self, CS):
+        self.__CurrentSpeed = CS
 
-    def SetHorizontalPosition(self, HorizontalPosition):
-        self.__HorizontalPosition = HorizontalPosition
+    def SetHorizontalPosition(self, HP):
+        self.__HorizontalPosition = HP
 
     def IncreaseSpeed(self):
-        CurrentSpeed += IncreaseAmount
-        CurrentSpeed += HorizontalPosition
+        self.__CurrentSpeed = self.CurrentSpeed + self.__IncreaseAmount
+
+        if(self.__CurrentSpeed > self.__MaxSpeed):
+            self.__CurrentSpeed = self.__MaxSpeed
+        
+        self.__HorizontalPosition = self.__HorizontalPosition + self.__CurrentSpeed
