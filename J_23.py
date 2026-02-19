@@ -54,7 +54,6 @@ class Vehicle:
 
     def IncreaseSpeed(self):
         self.__CurrentSpeed += self.__IncreaseAmount
-
         if(self.__CurrentSpeed > self.__MaxSpeed):
             self.__CurrentSpeed = self.__MaxSpeed
         
