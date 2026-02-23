@@ -24,6 +24,7 @@ PictureArr = [None for i in range(100)]
 
 def ReadData():
     count = 0
+
     try:
         with open("Pictures.txt", "r") as file:
             lines = [line.strip() for line in file.readlines() if line.strip()]
