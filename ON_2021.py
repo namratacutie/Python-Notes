@@ -53,7 +53,7 @@ def main():
     if count is None:
         count = 0
     
-    print("Enter requirements for a picture:")
+    print("\nEnter requirements for a picture:" + "\n")
     search_colour = input("Enter frame colour: ").strip().lower()
     search_width_str = input("Enter maximum width: ")
     search_height_str = input("Enter maximum height: ")
@@ -61,6 +61,7 @@ def main():
     try:
         search_width = int(search_width_str)
         search_height = int(search_height_str)
+
     except ValueError:
         print("Invalid width or height input.")
         return
@@ -74,7 +75,7 @@ def main():
                 print(f"Description: {pic.GetDescription()}")
                 print(f"Width: {pic.GetWidth()}")
                 print(f"Height: {pic.GetHeight()}")
-                print("-" * 20)
+                print("-" * 25)
                 found = True
     
     if not found:
