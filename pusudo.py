@@ -56,6 +56,10 @@ def ReadData():
             for AnimalLines in AnimalFile:
                 PushAnimal(AnimalLines.strip())
 
+    except FileNotFoundError:
+        print("File does not exist")
+
+    try:
         with open("ColorData.txt", "r") as ColorFile:
             for ColorLines in ColorFile:
                 PushColor(ColorLines.strip())
@@ -64,23 +68,18 @@ def ReadData():
         print("File does not exist")
 
 def OutputItem():
-    global AnimalTopPointer
-    global ColorTopPointer
 
-    ReturnedAnimal = PopAnimal
-    ReturnedColor = PopColor
-
-    if ReturnedColor == "":
+    animal = PopAnimal(DataToPop)
+    color = PopColor(DataToPop)
+        
+    if color == "":
+        PushAnimal(animal)
         print("No color")
-        PushAnimal(ReturnedAnimal)
-
+    elif animal == "":
+        PushColor(color)
+        print("No animal")
     else:
-        if ReturnedAnimal == "":
-            print("No animal")
-            PushColor(ReturnedColor)
-
-        else:
-            print(ReturnedColor, ReturnedAnimal)
+        print(f"{color} {animal}")
 
 ReadData()
 OutputItem()
