@@ -54,13 +54,13 @@ def main():
         count = 0
     
     print("\nEnter requirements for a picture:" + "\n")
-    search_colour = input("Enter frame colour: ").strip().lower()
-    search_width_str = input("Enter maximum width: ")
-    search_height_str = input("Enter maximum height: ")
+    input_colour = input("Enter frame colour: ").strip().lower()
+    input_width = input("Enter maximum width: ")
+    input_height = input("Enter maximum height: ")
     
     try:
-        search_width = int(search_width_str)
-        search_height = int(search_height_str)
+        input_width = int(input_width)
+        input_height = int(input_height)
 
     except ValueError:
         print("Invalid width or height input.")
@@ -70,8 +70,8 @@ def main():
     found = False
     for i in range(count):
         pic = PictureArr[i]
-        if pic.GetColour().lower() == search_colour:
-            if pic.GetWidth() <= search_width and pic.GetHeight() <= search_height:
+        if pic.GetColour().lower() == input_colour:
+            if pic.GetWidth() <= input_width and pic.GetHeight() <= input_height:
                 print(f"Description: {pic.GetDescription()}")
                 print(f"Width: {pic.GetWidth()}")
                 print(f"Height: {pic.GetHeight()}")
