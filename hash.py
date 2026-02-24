@@ -55,9 +55,14 @@ def GetRecord(Key):
     except FileNotFoundError:
         return "Not found"
 
-InitialiseHashTable()
-ReadData()
+def main():
 
-for i in range(5):
-    key = int(input("Enter key : "))
-    print(f"The value is{GetRecord(key)}" + "\n")
+    InitialiseHashTable()
+    ReadData()
+
+    for i in range(5):
+        key = int(input("Enter key : "))
+        print(f"The value is{GetRecord(key)}" + "\n")
+
+if __name__ == "__main__":
+    main()
