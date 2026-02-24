@@ -47,11 +47,13 @@ def ReadData():
 
 def GetRecord(Key):
     index = Hash(Key)
+    
     try:
         for j in range(10):
             if HashTable[index][j] is not None:
                 if HashTable[index][j].Key == Key:
                     return HashTable[index][j].Data
+
     except FileNotFoundError:
         return "Not found"
 
